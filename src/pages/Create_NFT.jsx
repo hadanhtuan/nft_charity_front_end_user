@@ -102,106 +102,98 @@ const Create_NFT = () => {
   return (
     <Box
       sx={{
-        bgcolor: "#f5f5f5",
-        // full height
-        height: "calc(100vh - 64px)",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        gap: "20px",
+        padding: "30px",
       }}
     >
+      {/* this is a box to contain all component  */}
+
+      {/* Cssbaseline */}
+      <CssBaseline />
+      {/* start left box to upload nft */}
       <Box
         sx={{
-          width: "100%",
-          height: "100%",
           display: "flex",
-          justifyContent: "space-between",
-          gap: "20px",
-          padding: "30px",
+          flexDirection: "column",
+          border: "30px solid #fff",
+          bgcolor: "#fff",
+          borderRadius: "20px",
+          flex: "2",
         }}
       >
-        {/* this is a box to contain all component  */}
-
-        {/* Cssbaseline */}
-        <CssBaseline />
-        {/* start left box to upload nft */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            border: "30px solid #fff",
-            bgcolor: "#fff",
-            borderRadius: "20px",
-            flex: "2",
-          }}
-        >
-          {/* Title */}
-          <Box mb={5}>
-            <Typography variant="h6">NFT Content</Typography>
-            {/* Title description */}
-            <Typography variant="body2">
-              You can set preferred display name, create your profile, URL and
-              manage other personal settings
-            </Typography>
-            {/* type of upload */}
-            <Typography variant="body2">
-              Upload image, video, audio, or 3d model. File types supported:
-              JPG, PNG, GIF, MP4, WEBM.
-            </Typography>
-            {/* support types */}
-            <Typography variant="body2" gutterBottom>
-              max size: 20 MB
-            </Typography>
-            {/* Box upload  */}
-          </Box>
-
-          <DropButton />
+        {/* Title */}
+        <Box mb={5}>
+          <Typography variant="h6">NFT Content</Typography>
+          {/* Title description */}
+          <Typography variant="body2">
+            You can set preferred display name, create your profile, URL and
+            manage other personal settings
+          </Typography>
+          {/* type of upload */}
+          <Typography variant="body2">
+            Upload image, video, audio, or 3d model. File types supported: JPG,
+            PNG, GIF, MP4, WEBM.
+          </Typography>
+          {/* support types */}
+          <Typography variant="body2" gutterBottom>
+            max size: 20 MB
+          </Typography>
+          {/* Box upload  */}
         </Box>
-        {/* end left box to upload nft */}
 
-        {/* start right box to set nft interface */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            flex: "1",
-            border: "30px solid #fff",
-            borderRadius: "20px",
-            bgcolor: "#fff",
-            justifyContent: "space-between",
-          }}
-        >
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            {/* title */}
-            <Typography variant="h6" gutterBottom>
-              NFT Content
-            </Typography>
-
-            {/* input name */}
-            <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-              <TextField
-                variant="standard"
-                label="Name"
-                multiline
-                type="text"
-                maxRows={4}
-              />
-
-              {/* input description */}
-              <TextField
-                variant="outlined"
-                label="Description"
-                multiline
-                type="text"
-                rows={4}
-              />
-            </Box>
-          </Box>
-
-          {/* button create nft*/}
-          <Button variant="outlined" onClick={createNFT} size="lg">
-            Create & List NFT!
-          </Button>
-        </Box>
-        {/* end right box to set nft interface */}
+        <DropButton />
       </Box>
+      {/* end left box to upload nft */}
+
+      {/* start right box to set nft interface */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          flex: "1",
+          border: "30px solid #fff",
+          borderRadius: "20px",
+          bgcolor: "#fff",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          {/* title */}
+          <Typography variant="h6" gutterBottom>
+            NFT Content
+          </Typography>
+
+          {/* input name */}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+            <TextField
+              variant="standard"
+              label="Name"
+              multiline
+              type="text"
+              maxRows={4}
+            />
+
+            {/* input description */}
+            <TextField
+              variant="outlined"
+              label="Description"
+              multiline
+              type="text"
+              rows={4}
+            />
+          </Box>
+        </Box>
+
+        {/* button create nft*/}
+        <Button variant="outlined" onClick={createNFT} size="lg">
+          Create & List NFT!
+        </Button>
+      </Box>
+      {/* end right box to set nft interface */}
     </Box>
   );
 };

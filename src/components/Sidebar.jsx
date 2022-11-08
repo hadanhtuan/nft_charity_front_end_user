@@ -14,13 +14,13 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import CreateIcon from "@mui/icons-material/Create";
 import SettingsIcon from "@mui/icons-material/Settings";
-import HomeIcon from '@mui/icons-material/Home';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-const drawerWidth = 240;
+import HomeIcon from "@mui/icons-material/Home";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+const drawerWidth = 200;
 
 export default function MySidebar() {
   return (
-    <Box sx={{ display: `flex` }}>
+    <Box>
       <CssBaseline />
       <Drawer
         sx={{
@@ -33,7 +33,7 @@ export default function MySidebar() {
         }}
         variant="permanent"
         anchor="left"
-        elevation={4}
+        elevation={1}
       >
         {/* this is a full box to contain any thing in sidebar */}
 
@@ -46,7 +46,6 @@ export default function MySidebar() {
               alignItems: `center`,
             }}
           >
-      
             <Box>
               <Typography ml={1}>NFT CHARITY</Typography>
             </Box>
@@ -84,10 +83,6 @@ export default function MySidebar() {
                   <ListItemText primary="History" />
                 </ListItemButton>
               </ListItem>
-
-            
-
-             
             </React.Fragment>
           }
         </List>
@@ -95,7 +90,6 @@ export default function MySidebar() {
         <Divider />
 
         {/* start phan footer */}
-       
       </Drawer>
     </Box>
   );

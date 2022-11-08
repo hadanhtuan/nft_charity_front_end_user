@@ -6,13 +6,7 @@ import { bgcolor } from "@mui/system";
 
 export default function Auction() {
   return (
-    <Box
-      sx={{
-        bgcolor: "#f5f5f5",
-        // full height
-        height: "calc(100vh - 64px)",
-      }}
-    >
+    <>
       <Box
         sx={{
           display: "flex",
@@ -23,7 +17,7 @@ export default function Auction() {
       >
         <img
           src={img1}
-          style={{ maxWidth: "100%", height: "auto" }}
+          style={{ maxWidth: "90%", height: "auto" }}
           alt=""
           srcset=""
         />
@@ -101,6 +95,6 @@ export default function Auction() {
           </Button>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 }

@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "./App.css";
 import Auction from "./pages/Auction";
+import Home from "./pages/Home";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -61,21 +62,36 @@ const App = () => {
   };
   return (
     <BrowserRouter>
-      <Box sx={{ display: "flex" }}>
+      <Box
+        className="body_box"
+        sx={{ width: "100%", height: "100%", display: "flex" }}
+      >
+        {/* sidebar */}
         <Sidebar />
 
-        <Box sx={{ flex: 1 }}>
-          <Grid container>
-            <Grid md={12}>
-              <Appbar web3Handler={web3Handler} />
-            </Grid>
-            <Grid md={12}>
-              <Switch>
-                <Route path="/create_nft" exact component={create_nft} />
-                <Route path="/auction" exact component={Auction} />
-              </Switch>
-            </Grid>
-          </Grid>
+        {/* right part of app */}
+        <Box
+          className="right_box"
+          sx={{
+            width: "calc(100% - 200px)",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* the appbar  */}
+          <Appbar web3Handler={web3Handler} />
+          {/* the body before appbar */}
+          <Box
+            className="pages_box"
+            sx={{ bgcolor: "#f5f5f5", width: "100%", height: "100%" }}
+          >
+            <Switch>
+              <Route path="/create_nft" exact component={create_nft} />
+              <Route path="/auction" exact component={Auction} />
+              <Route path="/" exact component={Home} />
+            </Switch>
+          </Box>
         </Box>
       </Box>
     </BrowserRouter>
