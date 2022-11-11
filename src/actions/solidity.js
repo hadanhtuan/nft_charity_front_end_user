@@ -69,9 +69,9 @@ export const fetchAuctionNFT = (accounts) => async (dispatch) => {
   const marketplace = new ethers.Contract(MarketplaceAddress.address, MarketplaceAbi.abi, signer);
   const nft = new ethers.Contract(NFTAddress.address, NFTAbi.abi, signer);
 
-  console.log('ntf contract: ', nft);
-  console.log('marketplace contract: ', marketplace);
-  console.log('fetching auciton nft...');
+  // console.log('ntf contract: ', nft);
+  // console.log('marketplace contract: ', marketplace);
+  // console.log('fetching auciton nft...');
   const itemCount = await marketplace.itemCount();
   // console.log(itemCount);
   let items = [];
@@ -113,7 +113,7 @@ export const fetchAuctionNFT = (accounts) => async (dispatch) => {
       });
     }
   }
-  console.log('item: ', items);
+  // console.log('item: ', items);
   dispatch({
     type: FETCH_SOLIDITY,
     payload: {
