@@ -2,21 +2,69 @@
 
 html,
 body,
-#root,
-.app,
-.content {
+#root {
   height: 100%;
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
 }
-
-.app {
-  display: flex;
-  position: relative;
+html,body{
+  height: 100%;
+  margin: 0;
 }
 
+.app {
+  /* full width and full height flex app */
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+}
+
+.right_box{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+ 
+}
+
+.pages_box{
+  height:100%;
+}
+
+/* pages */
+
+/* create-nft pages */
+.create_nft{
+  
+width: 100%;
+height:100%;
+display: flex;
+justify-content: space-between;
+gap: 20px;
+background-color: transparent;
+
+}
+
+.create_nft_left{
+  margin-top: 5%;
+  flex-grow: 1;
+  padding: 24px;
+  height: 60%;
+}
+
+.create_nft_right{
+  margin-top: 5%;
+  flex-grow: 1;
+  padding: 24px;
+  height: 80%;
+}
+
+/* home page */
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 2px;
 }
 
 /* Track */

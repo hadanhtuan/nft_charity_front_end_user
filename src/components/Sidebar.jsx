@@ -10,8 +10,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 
-import HomeIcon from '@mui/icons-material/Home';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import HomeIcon from "@mui/icons-material/Home";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 // import logo from "../../assets/litecoin.svg";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import CampaignIcon from "@mui/icons-material/Campaign";
@@ -20,19 +20,23 @@ import SettingsIcon from "@mui/icons-material/Settings";
 // import bottomSideBar from "../../assets/bottomSidebarImage.svg";
 import { useHistory, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 const drawerWidth = 200;
 
 export default function MySidebar() {
-  const history = useHistory()
+  const history = useHistory();
   const location = useLocation();
-  const pathname = location.pathname.split('/')[2]
-  console.log(pathname)
+  const pathname = location.pathname.split("/")[2];
+  console.log(pathname);
 
-  const backLink = {backgroundColor: 'rgb(0, 221, 162)', color: 'white', "&:hover": {
-    backgroundColor: 'rgb(7, 177, 77, 0.42)'
-  }}
+  const backLink = {
+    backgroundColor: "rgb(0, 221, 162)",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "rgb(7, 177, 77, 0.42)",
+    },
+  };
   return (
     <Box sx={{ display: `flex` }}>
       <CssBaseline />
@@ -60,9 +64,7 @@ export default function MySidebar() {
               alignItems: `center`,
             }}
           >
-            <Box>
-              {/* <img src={logo} alt="logo" /> */}
-            </Box>
+            <Box>{/* <img src={logo} alt="logo" /> */}</Box>
             <Box>
               <Typography ml={1}>NFT CHARITY</Typography>
             </Box>
@@ -75,7 +77,12 @@ export default function MySidebar() {
           {
             <React.Fragment>
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{history.push('/')}} sx={pathname == undefined ? backLink : {}}>
+                <ListItemButton
+                  onClick={() => {
+                    history.push("/");
+                  }}
+                  sx={pathname == undefined ? backLink : {}}
+                >
                   <ListItemIcon>
                     <HomeIcon />
                   </ListItemIcon>
@@ -84,7 +91,12 @@ export default function MySidebar() {
               </ListItem>
 
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{history.push('/list_nft')}} sx={pathname == 'list_nft' ? backLink : {}}>
+                <ListItemButton
+                  onClick={() => {
+                    history.push("/list_nft");
+                  }}
+                  sx={pathname == "list_nft" ? backLink : {}}
+                >
                   <ListItemIcon>
                     <FormatListBulletedIcon />
                   </ListItemIcon>
@@ -93,7 +105,12 @@ export default function MySidebar() {
               </ListItem>
 
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{history.push('/history')}} sx={pathname == 'campaign' ? backLink : {}}>
+                <ListItemButton
+                  onClick={() => {
+                    history.push("/history");
+                  }}
+                  sx={pathname == "campaign" ? backLink : {}}
+                >
                   <ListItemIcon>
                     <ReceiptLongIcon />
                   </ListItemIcon>
@@ -102,7 +119,12 @@ export default function MySidebar() {
               </ListItem>
 
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{history.push('/auction')}} sx={pathname == 'auction' ? backLink : {}}>
+                <ListItemButton
+                  onClick={() => {
+                    history.push("/auction");
+                  }}
+                  sx={pathname == "auction" ? backLink : {}}
+                >
                   <ListItemIcon>
                     <ShoppingCartCheckoutIcon />
                   </ListItemIcon>
@@ -111,7 +133,12 @@ export default function MySidebar() {
               </ListItem>
 
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{history.push('/create_nft')}} sx={pathname == 'auction' ? backLink : {}}>
+                <ListItemButton
+                  onClick={() => {
+                    history.push("/create_nft");
+                  }}
+                  sx={pathname == "auction" ? backLink : {}}
+                >
                   <ListItemIcon>
                     <CloudUploadIcon />
                   </ListItemIcon>
