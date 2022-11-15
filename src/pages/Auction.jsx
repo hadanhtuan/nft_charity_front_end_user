@@ -1,19 +1,13 @@
-import { Box, Typography, TextField, Button } from "@material-ui/core";
+import { Box, Typography, Button } from "@material-ui/core";
 import React, { useState, useEffect, useRef } from "react";
-import img1 from "../assets/img/img1.png";
 import img2 from "../assets/img/img2.png";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { bgcolor } from "@mui/system";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuctionById } from "../actions/auction";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 export default function Auction() {
   const { nft_id } = useParams();
-  const [displayImg1, setDisplayImg1] = useState(true);
 
   const { currCampaign } = useSelector((state) => state.campaign);
   const colors = [currCampaign?.img1_url, currCampaign?.img2_url];
@@ -46,12 +40,17 @@ export default function Auction() {
   if (!currCampaign) return null;
 
   return (
-    <Box sx={{padding: '16px 50px', height: '100%'}}>
-      <Box className="slideshow" sx={{ display: "flex",
-      flexDirection:'column',
+    <Box sx={{ padding: "16px 50px", height: "100%" }}>
+      <Box
+        className="slideshow"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
           zIndex: 1,
           justifyContent: "space-between",
-          flex: 1,}} >
+          flex: 1,
+        }}
+      >
         <Box
           className="slideshowSlider"
           style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
@@ -80,7 +79,7 @@ export default function Auction() {
           zIndex: 2,
           justifyContent: "space-between",
           flex: 1,
-        }} 
+        }}
       >
         <img
           src={img2}

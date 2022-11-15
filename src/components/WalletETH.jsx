@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, Card, Button } from '@mui/material';
-import { useSelector, useDispatch } from 'react-redux';
-import { CONNECT_ACC } from '../constraint/actionTypes';
-import { transactABI, transactAddress } from '../utils/constants';
-import { ethers } from 'ethers';
-import { fetchAuctionNFT } from '../actions/solidity';
+import React, { useState, useEffect } from "react";
+import { Typography, Card, Button } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { CONNECT_ACC } from "../constraint/actionTypes";
+import { transactABI, transactAddress } from "../utils/constants";
+import { ethers } from "ethers";
+import { fetchAuctionNFT } from "../actions/solidity";
 
 const getContract = () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -29,7 +29,7 @@ function WalletETH() {
   const web3Handler = async () => {
     // connect metamask
     accounts = await window.ethereum.request({
-      method: 'eth_requestAccounts',
+      method: "eth_requestAccounts",
     });
     // Get provider from Metamask
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -37,11 +37,11 @@ function WalletETH() {
     // Get signer
     const signer = provider.getSigner();
 
-    window.ethereum.on('chainChanged', (chainId) => {
+    window.ethereum.on("chainChanged", (chainId) => {
       window.location.reload();
     });
 
-    window.ethereum.on('accountsChanged', async function (accounts) {
+    window.ethereum.on("accountsChanged", async function (accounts) {
       await web3Handler();
     });
     dispatch({
@@ -60,30 +60,33 @@ function WalletETH() {
         //parese to ETH
         const amount_eth = ethers.utils.parseEther(amount);
 
-        const addressTo = '0xc368b89E3Ab7F827AA2dd25E79d1F2bf0621A6FE';
+        const addressTo = "0xc368b89E3Ab7F827AA2dd25E79d1F2bf0621A6FE";
 
         //request send eth
         await window.ethereum.request({
-          method: 'eth_sendTransaction',
+          method: "eth_sendTransaction",
           params: [
             {
               from: accounts[0],
               to: addressTo,
-              gas: '0x5208',
+              gas: "0x5208",
               value: amount_eth._hex,
             },
           ],
         });
 
-        const contractHash = await contract.addToBlockchain(addressTo, amount_eth);
+        const contractHash = await contract.addToBlockchain(
+          addressTo,
+          amount_eth
+        );
 
         setIsLoading(true);
 
-        console.log('Loading ', contractHash.hash);
+        console.log("Loading ", contractHash.hash);
 
         await contractHash.wait();
 
-        console.log('Success', contractHash.hash);
+        console.log("Success", contractHash.hash);
 
         setIsLoading(false);
 
@@ -97,7 +100,7 @@ function WalletETH() {
   };
 
   const handleClick = () => {
-    if (!window.ethereum) return alert('Please install metamask first');
+    if (!window.ethereum) return alert("Please install metamask first");
     if (!accounts) {
       web3Handler();
     } else {
@@ -108,20 +111,9 @@ function WalletETH() {
   const account_data = useSelector((state) => state.solidity.account);
   const [amount, setAmount] = useState(0);
   return (
-    <Card
-      sx={{
-        width: '100%',
-        height: '100%',
-        bgcolor: '#fff',
-        borderRadius: '10px',
-        padding: '20px',
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
+    <Card className="wallet">
       <input
+        className="wallet__input"
         value={amount}
         step="0.001"
         type="number"
@@ -131,8 +123,12 @@ function WalletETH() {
           setAmount(e.target.value);
         }}
       ></input>
-      <Button onClick={handleClick} variant="contained" sx={{ height: '80px', width: '80%', alignSelf: 'center' }}>
-        <Typography>{account_data ? 'Donate' : 'Connect to Wallet'}</Typography>
+      <Button
+        className="wallet__button"
+        onClick={handleClick}
+        variant="contained"
+      >
+        <Typography>{account_data ? "Donate" : "Connect to Wallet"}</Typography>
       </Button>
     </Card>
   );

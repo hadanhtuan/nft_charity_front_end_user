@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, Avatar, Card, CardMedia } from "@mui/material";
+import { CardMedia } from "@mui/material";
 import landscape2 from "../assets/img/landscape2.jpg";
 import landscape1 from "../assets/img/landscape1.jpg";
 import img1 from "../assets/img/img1.png";

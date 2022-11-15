@@ -1,11 +1,13 @@
-import * as api from '../apis';
-import { ethers } from 'ethers';
-import MarketplaceAbi from '../utils/contractsData/Marketplace.json';
-import MarketplaceAddress from '../utils/contractsData/Marketplace-address.json';
-import NFTAbi from '../utils/contractsData/NFT.json';
-import NFTAddress from '../utils/contractsData/NFT-address.json';
+import { ethers } from "ethers";
+import MarketplaceAbi from "../utils/contractsData/Marketplace.json";
+import MarketplaceAddress from "../utils/contractsData/Marketplace-address.json";
+import NFTAbi from "../utils/contractsData/NFT.json";
+import NFTAddress from "../utils/contractsData/NFT-address.json";
 
-import { FETCH_NFT, START_LOADING_SOLIDITY, FETCH_SOLIDITY } from '../constraint/actionTypes';
+import {
+  START_LOADING_SOLIDITY,
+  FETCH_SOLIDITY,
+} from "../constraint/actionTypes";
 
 export const fetchSolidity = (accounts) => async (dispatch) => {
   dispatch({ type: START_LOADING_SOLIDITY });
@@ -14,7 +16,11 @@ export const fetchSolidity = (accounts) => async (dispatch) => {
   // Set signer
   const signer = provider.getSigner();
 
-  const marketplace = new ethers.Contract(MarketplaceAddress.address, MarketplaceAbi.abi, signer);
+  const marketplace = new ethers.Contract(
+    MarketplaceAddress.address,
+    MarketplaceAbi.abi,
+    signer
+  );
   const nft = new ethers.Contract(NFTAddress.address, NFTAbi.abi, signer);
 
   // console.log("ntf contract: ", nft);
@@ -35,7 +41,7 @@ export const fetchSolidity = (accounts) => async (dispatch) => {
       const metadata = await response.json();
       // get total price of item (item price + fee)
       // console.log(metadata);
-      const thisNft = await marketplace.items(item.itemId);
+      // const thisNft = await marketplace.items(item.itemId);
       // const startPrice = ethers.utils.formatEther(thisNft.startPrice)+'ETH'
       // Add item to items array
       console.log(item);
@@ -66,7 +72,11 @@ export const fetchAuctionNFT = (accounts) => async (dispatch) => {
   // Set signer
   const signer = provider.getSigner();
 
-  const marketplace = new ethers.Contract(MarketplaceAddress.address, MarketplaceAbi.abi, signer);
+  const marketplace = new ethers.Contract(
+    MarketplaceAddress.address,
+    MarketplaceAbi.abi,
+    signer
+  );
   const nft = new ethers.Contract(NFTAddress.address, NFTAbi.abi, signer);
 
   // console.log('ntf contract: ', nft);

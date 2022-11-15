@@ -45,7 +45,7 @@ export default (state = initState, action) => {
       return {
         ...state,
         campaigns: state.campaigns.map((camp) =>
-          camp.id == action.payload.id ? action.payload : camp
+          camp.id === action.payload.id ? action.payload : camp
         ),
         isLoading: false,
       };

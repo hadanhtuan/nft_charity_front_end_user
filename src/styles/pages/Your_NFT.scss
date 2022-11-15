@@ -1,0 +1,13 @@
+.yourNFT
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+
+    .container
+    {
+        display: 'flex';
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}

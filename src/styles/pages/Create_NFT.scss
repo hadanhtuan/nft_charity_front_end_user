@@ -1,0 +1,41 @@
+.createNFT
+{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-top: 50px;
+
+    &__upload
+    {
+        flex: 2;
+        height: fit-content;
+        padding: 24px;
+
+        &__title
+        {}
+    }
+
+    &__info
+    {
+        flex: 1;
+        height: fit-content;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .name
+        {}
+
+        .description
+        {}
+
+        .button
+        {
+            margin-top: 24px;
+            padding: 24px;
+        }
+
+
+    }
+}
