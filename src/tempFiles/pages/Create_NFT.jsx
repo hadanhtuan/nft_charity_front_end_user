@@ -1,12 +1,21 @@
-import { Box, Card, Typography, TextField, Button } from "@mui/material";
-import DropButton from "../components/DropButton";
+import React from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  CssBaseline,
+  TextField,
+  Card,
+} from "@material-ui/core";
+
+import DropButton from "../../components/DropButton.jsx";
 
 import { useState } from "react";
 import { Buffer } from "buffer";
-import { pinJSONToIPFS } from "../utils/pinata.js";
+import { pinJSONToIPFS } from "../../utils/pinata.js";
 import { useSelector } from "react-redux";
 
-import React from "react";
+// import styles
 import "../styles/pages/Create_NFT.scss";
 
 const Create_NFT = () => {
@@ -86,6 +95,7 @@ const Create_NFT = () => {
       console.log(error);
     }
   };
+
   return (
     <Box className="createNFT">
       <Card className="createNFT__upload">

@@ -13,16 +13,17 @@ import "../styles/pages/Home.scss";
 const NFTList = () => {
   const listNFT = useSelector((state) => state.solidity.nftList);
   return (
-    <Box className="listNFT">
-      <Box className="listNFT__title">
-        <Typography variant="h4">NFT</Typography>
-        <Typography variant="subtitle1" fontWeight={700}>
-          See more...
-        </Typography>
-      </Box>
-      <Box className="listNFT__content">
-        {listNFT
-          ? listNFT.map((nft) => (
+    <Card className="listNFT">
+      <Box className="container">
+        <Box className="listNFT__title">
+          <Typography variant="h4">NFT</Typography>
+          <Typography variant="subtitle1" fontWeight={700}>
+            See more...
+          </Typography>
+        </Box>
+        <Box className="listNFT__content">
+          {listNFT ? (
+            listNFT.map((nft) => (
               <NFTItem
                 key={nft.id}
                 title={nft.name}
@@ -30,9 +31,12 @@ const NFTList = () => {
                 remainingTime={nft.endAt}
               ></NFTItem>
             ))
-          : "There are no auctions campaign right now!"}
+          ) : (
+            <Typography>There are no auctions campaign right now!</Typography>
+          )}
+        </Box>
       </Box>
-    </Box>
+    </Card>
   );
 };
 
@@ -41,9 +45,9 @@ export const Home = () => {
     <Box className="homePages">
       <Box className="theFirst">
         {/* slider */}
-        <Box className="slider">
+        <Card className="slider">
           <Slider />
-        </Box>
+        </Card>
 
         {/* list campaign */}
         <Card className="listCampaign">

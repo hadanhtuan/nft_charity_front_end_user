@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Card, Button } from "@mui/material";
+import { Typography, Card, Button, Box } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { CONNECT_ACC } from "../constraint/actionTypes";
 import { transactABI, transactAddress } from "../utils/constants";
@@ -112,24 +112,28 @@ function WalletETH() {
   const [amount, setAmount] = useState(0);
   return (
     <Card className="wallet">
-      <input
-        className="wallet__input"
-        value={amount}
-        step="0.001"
-        type="number"
-        placeholder="Amount"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setAmount(e.target.value);
-        }}
-      ></input>
-      <Button
-        className="wallet__button"
-        onClick={handleClick}
-        variant="contained"
-      >
-        <Typography>{account_data ? "Donate" : "Connect to Wallet"}</Typography>
-      </Button>
+      <Box className="container">
+        <input
+          className="wallet__input"
+          value={amount}
+          step="0.001"
+          type="number"
+          placeholder="Amount"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setAmount(e.target.value);
+          }}
+        ></input>
+        <Button
+          className="wallet__button"
+          onClick={handleClick}
+          variant="contained"
+        >
+          <Typography>
+            {account_data ? "Donate" : "Connect to Wallet"}
+          </Typography>
+        </Button>
+      </Box>
     </Card>
   );
 }
