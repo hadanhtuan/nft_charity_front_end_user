@@ -1,0 +1,29 @@
+.Appbar
+{
+
+    .MyAppBar
+    {
+        background-color: #030410;
+
+        &__toolbar
+        {
+            display: flex;
+            justify-content: space-between;
+
+            .optional
+            {
+                display: flex;
+                gap: 24px;
+
+                .createNFT_button
+                {}
+
+                .Donate_button
+                {}
+
+                .Connect_button
+                {}
+            }
+        }
+    }
+}

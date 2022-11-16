@@ -1,18 +1,15 @@
 import { Box } from "@material-ui/core";
+import { Card } from "@mui/material";
 import * as React from "react";
 import { DropzoneArea } from "react-mui-dropzone";
 
 export default function DropButton({ setImage }) {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <Card className="upload">
       <DropzoneArea
+        className="upload__dropzone"
         acceptedFiles={["image/*"]}
-        dropzoneText={"Drag and drop an image here or click"}
+        dropzoneText={"Drag and drop here or click"}
         onChange={(files) => {
           console.log("Files:", files[0]);
           setImage(files[0]);
@@ -23,6 +20,6 @@ export default function DropButton({ setImage }) {
         showPreviewsInDropzone={false}
         previewText="Selected files"
       />
-    </Box>
+    </Card>
   );
 }

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,7 +10,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import BloodtypeIcon from "@mui/icons-material/Bloodtype";
 import { useSelector } from "react-redux";
-import { useTheme } from "@mui/material/styles";
+
+import "../styles/components/Appbar.scss";
+import { Button } from "@mui/material";
 
 // styled search
 const Search = styled("div")(({ theme }) => ({
@@ -57,9 +60,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar({ web3Handler }) {
   const account = useSelector((state) => state.solidity.account);
   return (
-    <Box sx={{}}>
-      <AppBar position="static">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box className="Appbar">
+      <AppBar className="MyAppBar" position="static">
+        <Toolbar className="MyAppBar__toolbar">
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -70,46 +73,36 @@ export default function PrimarySearchAppBar({ web3Handler }) {
             />
           </Search>
 
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginRight: "30px",
-              }}
+          <Box className="optional">
+            <Button
+              className="createNFT_button"
+              color="inherit"
+              variant="outlined"
+              startIcon={<BorderColorIcon />}
             >
-              <BorderColorIcon sx={{ marginRight: "4px" }} />
               Create
-            </Typography>
+            </Button>
 
-            <Typography
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginRight: "30px",
-              }}
+            <Button
+              color="inherit"
+              variant="outlined"
+              className="Donate_button"
+              startIcon={<BloodtypeIcon />}
             >
-              <BloodtypeIcon sx={{ marginRight: "4px" }} />
               Donate
-            </Typography>
-            <Typography
+            </Button>
+            <Button
+              className="Connect_button"
+              color="inherit"
+              variant="outlined"
               onClick={() => {
                 account ? console.log("") : web3Handler();
-              }}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginRight: "30px",
-                cursor: "pointer",
               }}
             >
               {account
                 ? `${account.slice(0, 5) + "..." + account.slice(38, 42)}`
                 : "Connect Wallet"}
-            </Typography>
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>

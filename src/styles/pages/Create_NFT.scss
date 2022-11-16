@@ -11,8 +11,21 @@
         height: fit-content;
         padding: 24px;
 
-        &__title
-        {}
+        .upload
+        {
+            .MuiDropzoneArea-root
+            {
+                border: 1px solid #fff;
+                background-color: transparent;
+                display: flex;
+
+                .MuiDropzoneArea-textContainer
+                {
+                    width: 100%;
+                    align-self: center;
+                }
+            }
+        }
     }
 
     &__info
