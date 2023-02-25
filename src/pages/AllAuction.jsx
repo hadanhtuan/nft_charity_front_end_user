@@ -80,7 +80,10 @@ const StyledItemAuction = styled(Card)`
 
 const ItemAuction = ({ auc }) => {
   const history = useHistory();
-
+  const date = new Date(auc.endAt*1000)
+  const tempHour = date.getHours() < 10 ? '0'+date.getHours() : date.getHours();
+  const tempMin = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
+  const dateDisplay=date.getDate()+ '/'+ Number(date.getMonth()+1)+ '/'+ date.getFullYear()+ ', ' + tempHour+':'+tempMin
   return (
     <StyledItemAuction>
       <Box className="cardContainer">
@@ -105,7 +108,7 @@ const ItemAuction = ({ auc }) => {
         </Typography>
 
         <Typography variant="body1" className="auctionTimeLeft">
-          Time left: 1 day 2 hours 30 minutes
+          Time end: {dateDisplay}
         </Typography>
 
         <Button

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, CircularProgress, Typography } from "@mui/material";
-import {fromWei, account_admin} from '../../utils'
+import {fromWei, account_admin} from '../utils'
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 const etherscanApi = (acc) =>

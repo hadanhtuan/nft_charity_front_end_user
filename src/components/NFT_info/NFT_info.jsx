@@ -11,6 +11,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useDispatch, useSelector } from "react-redux";
 import {TRANS_NFT} from '../../constraint/actionTypes'
 import * as api from "../../apis";
+import AlertLoading from '../AlertLoading'
 
 import styled from "@emotion/styled";
 function toBase64(arr) {
@@ -118,9 +119,15 @@ export default function MyNFTInfo({
 }) {
   const [open, setOpen] = useState(false);
   const [desc, setDesc] = useState("");
+  const [display, setDisplay] = useState(false)
+  const [text, setText] = useState('')
+
   const dispatch = useDispatch()
 
   const transNFT = async () => {
+    setOpen(false);
+    setDisplay(true)
+    setText('Step 1/1')
     const a = await (
       await marketplaceContract.transItem(nftContract.address, id)
       ).wait();
@@ -137,9 +144,8 @@ export default function MyNFTInfo({
         payload: id
       })
     // await api.createTrans(trans);
-    setOpen(false);
-    
-    handleClose();
+     setDisplay(false)
+    // handleClose();
   };
 
   const handleClickOpen = () => {
@@ -162,6 +168,7 @@ export default function MyNFTInfo({
               alt="nft_img"
             />
           </Box>
+          {display && <AlertLoading text={text} />}
           <Box className="cardContent">
             <Box className="cardContent_header">
               <Box className="contentLeft">

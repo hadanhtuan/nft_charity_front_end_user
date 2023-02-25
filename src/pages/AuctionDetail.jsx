@@ -387,8 +387,9 @@ const CampaignInfo = ({
           </Typography>
         </Typography>
         <Box className="info_time">
-          {!timeout && isStarted ? (
-            <Countdown date={date} />
+          <Countdown date={date} />
+          {true ? (
+            <></>
           ) : (
             <Typography color="pink" variant="h6">
               Auction Ended

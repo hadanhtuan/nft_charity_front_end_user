@@ -17,7 +17,7 @@ import "./App.css";
 import Account from "./pages/Account";
 import createTheme from "@mui/material/styles/createTheme";
 import ErrorPages from "./pages/ErrorPages";
-import HistoryTransaction from "./pages/HistoryTransaction.jsx/HistoryTransaction";
+import HistoryTransaction from "./pages/HistoryTransaction";
 import { HomeMax } from "@mui/icons-material";
 import AuctionDetail from "./pages/AuctionDetail";
 import AllAuction from "./pages/AllAuction";
@@ -69,9 +69,7 @@ const App = () => {
   useEffect(() => {
     // web3Handler();
     window.addEventListener("beforeunload", (e) => {
-      if (window.event.clientY < 0) {
         localStorage.removeItem("acc");
-      }
     });
 
     const acc = localStorage.getItem("acc");
@@ -109,7 +107,6 @@ const App = () => {
           sx={{ width: "100%", height: "100%", display: "flex" }}
         >
           <Sidebar />
-          {/* right part of app */}
           <Box
             className="right_box"
             sx={{
@@ -147,7 +144,6 @@ const App = () => {
                   component={AuctionDetail}
                 />
 
-                {/* <Route path="/auction" exact component={Auction} /> */}
                 <Route
                   path="/account"
                   exact
